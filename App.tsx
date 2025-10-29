@@ -5,17 +5,22 @@ import { AuthContextProvider } from "@/context/auth.context";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { SnackbarContextProvider } from "@/context/snackbar.context";
 import { Snackbar } from "@/components/Snackbar";
+import { BottomSheetProvider } from "@/context/bottomsheet.context";
 
 export default function App() {
+  {
+    /* SafeAreaProvider add para funcionar na web */
+  }
   return (
-    <SnackbarContextProvider>
-      <AuthContextProvider>
-        {/* SafeAreaProvider add para funcionar na web */}
-        <SafeAreaProvider>
-          <NavigationRoutes />
-          <Snackbar />
-        </SafeAreaProvider>
-      </AuthContextProvider>
-    </SnackbarContextProvider>
+    <SafeAreaProvider>
+      <SnackbarContextProvider>
+        <AuthContextProvider>
+          <BottomSheetProvider>
+            <NavigationRoutes />
+            <Snackbar />
+          </BottomSheetProvider>
+        </AuthContextProvider>
+      </SnackbarContextProvider>
+    </SafeAreaProvider>
   );
 }
