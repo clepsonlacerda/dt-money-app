@@ -11,10 +11,13 @@ export const AppHeader = () => {
   return (
     <View className="w-full flex-row p-8 justify-between">
       <View>
-        {/* <Image
-          source={require("@/assets/images/Logo.png")}
-          className="w-[130px] h-[30px]"
-        /> */}
+        <View className="w-[130px] h-[30px]">
+          <Image
+            source={require("@/assets/images/Logo.png")}
+            resizeMode="contain"
+            style={{ width: "100%", height: "100%" }}
+          />
+        </View>
 
         <TouchableOpacity
           className="flex-row items-center gap-2 mt-2"

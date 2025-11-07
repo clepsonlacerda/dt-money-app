@@ -19,7 +19,7 @@ interface BottomSheetContextType {
 export const BottomSheetContext = createContext({} as BottomSheetContextType);
 
 export const BottomSheetProvider: FC<PropsWithChildren> = ({ children }) => {
-  const [content, setContent] = useState<React.ReactNode>(null);
+  const [content, setContent] = useState<React.ReactNode | null>(null);
   const bottomSheetRef = useRef<BottomSheet>(null);
   const snapPoints = ["70%", "90%"];
   const [index, setIndex] = useState(-1);
@@ -38,13 +38,13 @@ export const BottomSheetProvider: FC<PropsWithChildren> = ({ children }) => {
   );
 
   const closeBottomSheet = useCallback(() => {
+    bottomSheetRef.current?.close();
     setIsOpen(false);
     setContent(null);
     setIndex(-1);
-    bottomSheetRef.current?.close();
   }, []);
 
-  const handleSheetChanges = useCallback(() => {
+  const handleSheetChanges = useCallback((index: number) => {
     if (index === -1) {
       setIsOpen(false);
     }
