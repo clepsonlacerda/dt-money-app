@@ -1,4 +1,4 @@
 export interface TransactionCategory {
-  id: string;
+  id: number;
   name: string;
 }
