@@ -9,7 +9,7 @@ export const AppHeader = () => {
   const { handleLogout } = useAuthContext();
   const { openBottomSheet } = useBottomSheetContext();
   return (
-    <View className="w-full flex-row p-8 justify-between">
+    <View className="w-full flex-row p-8 justify-between bg-background-primary">
       <View>
         <View className="w-[130px] h-[30px]">
           <Image

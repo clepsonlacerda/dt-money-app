@@ -6,8 +6,6 @@ export const addTokenToRequest = (axiosInstance: AxiosInstance) => {
   axiosInstance.interceptors.request.use(async (config) => {
     const userData = await AsyncStorage.getItem("dt-money-user");
 
-    console.log("USER DATA NO INTERCEPTOR:", userData);
-
     if (userData) {
       const { token } = JSON.parse(userData) as IAuthenticateResponse;
 
