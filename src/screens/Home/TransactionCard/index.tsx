@@ -6,8 +6,10 @@ import clsx from "clsx";
 import { format } from "date-fns";
 import { FC } from "react";
 import { Text, View } from "react-native";
-import Swipeable from "react-native-gesture-handler/ReanimatedSwipeable";
+// import Swipeable from "react-native-gesture-handler";
 import { RightAction } from "./RightAction";
+import { LeftAction } from "./LeftAction";
+import { Swipeable } from "react-native-gesture-handler";
 
 interface Params {
   transaction: Transaction;
@@ -22,11 +24,13 @@ export const TransactionCard: FC<Params> = ({ transaction }) => {
         alignItems: "center",
         alignSelf: "center",
         overflow: "visible",
-        width: "50%",
+        width: "90%",
         marginBottom: 16,
       }}
       renderRightActions={() => <RightAction transactionId={transaction.id} />}
+      renderLeftActions={() => <LeftAction transaction={transaction} />}
       overshootRight={false}
+      overshootLeft={false}
     >
       <View className="h-[140] bg-background-tertiary rounded-[6] p-6">
         <Text className="text-white text-base">{transaction.description}</Text>
