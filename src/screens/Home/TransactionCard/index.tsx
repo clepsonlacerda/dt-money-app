@@ -10,6 +10,7 @@ import { Text, View } from "react-native";
 import { RightAction } from "./RightAction";
 import { LeftAction } from "./LeftAction";
 import { Swipeable } from "react-native-gesture-handler";
+import { moneyMapper } from "@/shared/utils/money-mapper";
 
 interface Params {
   transaction: Transaction;
@@ -40,7 +41,7 @@ export const TransactionCard: FC<Params> = ({ transaction }) => {
             isEexpense ? "text-accent-red" : "text-accent-brand-light"
           )}
         >
-          {isEexpense && "-"} R$ {transaction.value.toFixed(2)}
+          {isEexpense && "-"} R$ {moneyMapper(transaction.value)}
         </Text>
         <View className="flex-row w-full justify-between items-center">
           <View className="items-center flex-row mt-3">
